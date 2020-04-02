@@ -1,1 +1,7 @@
 .idea
+
+ui/.idea
+ui/.cache
+ui/node_modules/
+ui/yarn.lock
+ui/yarn-error.log
