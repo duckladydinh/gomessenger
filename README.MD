@@ -8,9 +8,11 @@ Why something like this? Because my research has shown
 that Go is best used for <b>web application and microservices</b>.
 
 Small Task(s):
-1. Test if Go can publish a web UI.
-2. Test websocket communication.
-3. Implement all key features.
-4. Deploy to Google Cloud.
+ - [x] Test if Go can publish a web UI.
+ - [ ] Build a non-compromised chat UI.
+ - [ ] Test websocket communication.
+ - [ ] Implement all key features.
+ - [ ] Deploy to a docker image.
+ - [ ] Deploy to Google Cloud.
 
 I just want to learn more about Go and Web App. That's it!
