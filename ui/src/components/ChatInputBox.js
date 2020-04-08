@@ -1,6 +1,5 @@
 import React from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { Input } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -32,5 +31,4 @@ export const ChatInputBox = () => {
             </Button>
         </Grid>
     </Grid>;
-
 };
