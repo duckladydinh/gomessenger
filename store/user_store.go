@@ -6,6 +6,12 @@ import (
 	"github.com/duckladydinh/gochat/api/model"
 )
 
+func NewUserStore() *UserStore {
+	s := new(UserStore)
+	s.data = map[string]model.ChatUser{}
+	return s
+}
+
 func (s *UserStore) AddUser(user model.ChatUser) {
 	s.mux.Lock()
 	s.data[user.Id] = user

@@ -5,6 +5,7 @@ import (
 	"github.com/duckladydinh/gochat/api/message"
 	"github.com/duckladydinh/gochat/api/model"
 	"github.com/duckladydinh/gochat/store"
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
@@ -30,47 +31,62 @@ func TestMessageCryptography(t *testing.T) {
 
 func TestMessageStore(t *testing.T) {
 	const NumberOfMessages int = 100
-	db := store.NewMessageStore()
-	c := make(chan int)
+	const NumberOfUsers int = 20
+	msgStore := store.NewMessageStore()
+	usrStore := store.NewUserStore()
+	messages := make(chan model.ChatMessage)
 
 	go func() {
 		after := int64(0)
-		res := make([]model.ChatMessage, 0)
 
 		retries := 5
 		for retries > 0 {
-			cur := db.GetMessages(after)
-			if len(cur) == 0 {
+			if msgStore.LastTime() == after {
 				retries -= 1
 			} else {
+				cur := msgStore.GetMessages(after)
+				assert.Greater(t, len(cur), 0)
 				retries = 5
 				for _, msg := range cur {
-					res = append(res, msg)
+					messages <- msg
 					after = msg.Time
 				}
 			}
-
 			time.Sleep(10 * time.Millisecond)
 		}
-
-		c <- len(res)
-		close(c)
+		close(messages)
 	}()
 
 	go func() {
-		for i := 1; i <= NumberOfMessages; i++ {
-			chatMsg := model.ChatMessage{
-				Id:      fmt.Sprintf("Id-%v", i),
-				Time:    time.Now().UnixNano(),
-				UserId:  fmt.Sprintf("User-%v", i),
-				Content: fmt.Sprintf("I am message %v", i),
+		for i := 0; i < NumberOfUsers; i++ {
+			user := model.ChatUser{
+				Id:   fmt.Sprintf("User-%v", i),
+				Name: fmt.Sprintf("User-%v", i),
 			}
+			usrStore.AddUser(user)
+		}
 
-			db.AddMessage(chatMsg)
+		for i := 1; i <= NumberOfMessages; i++ {
+			userId := fmt.Sprintf("User-%v", i%NumberOfUsers)
+			user, err := usrStore.GetUser(userId)
+			assert.Nil(t, err)
 
-			time.Sleep(10 * time.Millisecond)
+			chatMsg := model.ChatMessage{
+				Id:      uuid.New().String(),
+				Time:    time.Now().UnixNano(),
+				UserId:  userId,
+				Content: fmt.Sprintf("Message %v by %v", i, user.Name),
+			}
+			msgStore.AddMessage(chatMsg)
+
+			time.Sleep(15 * time.Millisecond)
 		}
 	}()
 
-	assert.Equal(t, NumberOfMessages, <-c)
+	cnt := 0
+	for msg := range messages {
+		assert.Contains(t, msg.Content, msg.UserId)
+		cnt += 1
+	}
+	assert.Equal(t, NumberOfMessages, cnt)
 }

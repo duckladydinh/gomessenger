@@ -5,9 +5,9 @@ import (
 )
 
 func NewMessageStore() *MessageStore {
-	msg := new(MessageStore)
-	msg.data = make([]model.ChatMessage, 0)
-	return msg
+	s := new(MessageStore)
+	s.data = make([]model.ChatMessage, 0)
+	return s
 }
 
 func (s *MessageStore) AddMessage(msg model.ChatMessage) {
