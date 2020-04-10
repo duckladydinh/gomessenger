@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	// register and listen
+	//register and listen
 	mux := http.NewServeMux()
 
 	// connect ui (a full yarn/parcel/react project)
