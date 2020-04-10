@@ -15,11 +15,11 @@ const (
 
 type Message struct {
 	Type    Type
-	Payload []byte
+	Payload string
 }
 
 func (msg Message) ParsePayload(x interface{}) error {
-	return json.Unmarshal(msg.Payload, x)
+	return json.Unmarshal([]byte(msg.Payload), x)
 }
 
 func (msg Message) ToJsonBytes() []byte {
@@ -30,7 +30,8 @@ func (msg Message) ToJsonBytes() []byte {
 func NewMessage(t Type, p interface{}) *Message {
 	msg := new(Message)
 	msg.Type = t
-	msg.Payload, _ = json.Marshal(p)
+	payload, _ := json.Marshal(p)
+	msg.Payload = string(payload)
 	return msg
 }
 

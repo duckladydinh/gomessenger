@@ -1,9 +1,8 @@
 package query
 
 type ChatMessageQuery struct {
-	UserId  string
-	MinTime int64
-	MaxTime int64
+	UserId string
+	After  int64
 }
 
 type ChatUserQuery struct {
