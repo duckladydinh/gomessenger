@@ -8,9 +8,10 @@ Why something like this? Because my research has shown
 that Go is best used for <b>web application and microservices</b>.
 
 Small Task(s):
+ - [ ] Auto-generate models in Go and JS.
  - [x] Test if Go can publish a web UI.
  - [ ] Build a non-compromised chat UI.
- - [ ] Test websocket communication.
+ - [x] Test websocket communication.
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
  - [ ] Deploy to Google Cloud.
