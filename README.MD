@@ -11,7 +11,7 @@ Small Task(s):
  - [ ] Auto-generate models in Go and JS.
  - [x] Test if Go can publish a web UI.
  - [x] Test websocket communication.
- - [x] PLay with Flutter Web.
+ - [x] Play with Flutter Web.
  - [ ] Build a non-compromised chat UI.
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
