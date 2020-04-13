@@ -1,20 +1,16 @@
-<h1>Go + Flutter = Chat with Love</h1>
+# Go + gRPC + Flutter = Awesome Chap App
 
-I plan to play with <b>Go</b> (originally) and <b>Flutter</b> (after researching a better way to create webpages)
-by building a small chat service. The backend server will be written in Go, while the ui is a full 
-web project (yarn, parcel, React or Vue...) or even better with <b>Flutter Web</b>.
+## Goals
+I want to learn **GO** by building a small chat app with Go backend, Websocket or gRPC (*in consideration*) and React + Material UI or Flutter (*in cosideration*) frontend.
 
-Why something like this? Because my research has shown
-that Go is best used for <b>web application and microservices</b>.
+Why? My research suggested that Go is best for web application backend and microservices. The frontend is hence needed and a good way to transfer data is also very important.
 
-Small Task(s):
- - [ ] Auto-generate models in Go and JS.
- - [x] Test if Go can publish a web UI.
- - [x] Test websocket communication.
- - [x] Play with Flutter Web.
+## Tasks
+ - [ ] Auto-generate models in Go and JS -> the pain of rewriting the same stuff in the client-side -> JSON (tested) or gRPC.
+ - [x] Play with Flutter Web -> incredible but some problems with releaseing.
+ - [x] Test if Go can publish a web UI -> by http.FileServer.
+ - [x] Test websocket communication -> by gorilla/websocket.
  - [ ] Build a non-compromised chat UI.
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
  - [ ] Deploy to Google Cloud.
-
-I just want to learn more about Go and Web App. That's it!
