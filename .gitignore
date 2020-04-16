@@ -1,7 +1,7 @@
 .idea
 
-ui/.idea
-ui/.cache
-ui/node_modules/
-ui/yarn.lock
-ui/yarn-error.log
+backend/.idea
+
+frontend/.idea
+frontend/.dart_tool
+frontend/build
