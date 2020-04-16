@@ -12,7 +12,7 @@ Why? My research suggested that Go is best for web application backend and micro
  - [x] Auto-generate models in Go and JS -> the pain of rewriting the same stuff in the client-side -> gRPC + protobuf 3.
  - [x] Play with Flutter Web -> incredible but some problems with releaseing.
  - [x] Test if Go can publish a web UI -> by http.FileServer.
- - [x] Test websocket communication -> by gorilla/websocket.
+ - [x] ~~Test websocket communication -> by gorilla/websocket.~~ (outdated)
  - [ ] Build a non-compromised chat UI.
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
