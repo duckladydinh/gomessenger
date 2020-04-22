@@ -15,7 +15,7 @@ class Service {
     return await client.addChatMessage(req);
   }
 
-  static ResponseStream<model.ChatMessage> getChatChannel() {
+  static Stream<model.ChatMessage> getChatChannel() {
     model.GetChatChannelRequest req = model.GetChatChannelRequest();
     req.userId = "usr01";
     req.channelId = "public";

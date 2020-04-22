@@ -8,19 +8,19 @@ import (
 )
 
 type ChannelStreamStore struct {
-	data      map[string]api.ChatService_GetChatChannelServer
+	data      map[string]*api.ChatService_GetChatChannelServer
 	mux       sync.Mutex
 	channelId string
 }
 
 func NewChannelStreamStore(channelId string) *ChannelStreamStore {
 	return &ChannelStreamStore{
-		data:      make(map[string]api.ChatService_GetChatChannelServer),
+		data:      make(map[string]*api.ChatService_GetChatChannelServer),
 		channelId: channelId,
 	}
 }
 
-func (s *ChannelStreamStore) AddStream(userId string, stream api.ChatService_GetChatChannelServer) {
+func (s *ChannelStreamStore) AddStream(userId string, stream *api.ChatService_GetChatChannelServer) {
 	s.data[userId] = stream
 }
 
@@ -36,8 +36,8 @@ func (s *ChannelStreamStore) Broadcast(msg *model.ChatMessage) {
 	rm := make([]string, 0)
 	s.mux.Lock()
 	for userId, stream := range s.data {
-		log.Println(".Broadcast", userId)
-		e := stream.Send(&sendMsg)
+		e := (*stream).Send(&sendMsg)
+		log.Println(".Broadcast", userId, stream, e)
 		if e != nil {
 			rm = append(rm, userId)
 		}

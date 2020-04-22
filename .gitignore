@@ -1,7 +1,12 @@
 .idea
 
-backend/.idea
+go/.idea
 
-frontend/.idea
-frontend/.dart_tool
-frontend/build
+flutter/.idea
+flutter/.dart_tool
+flutter/build
+
+web/node_modules
+web/.cache
+web/yarn*.log*
+web/yarn.lock

@@ -46,8 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     var chatChannel = Service.getChatChannel();
-    chatChannel.listen((msg) {
-      print(msg.content);
+    chatChannel.listen((e) {
+      print(e);
+    }, onError: (e) {
+      print("Error");
+    }, onDone: () {
+      print("Done");
     });
   }
 

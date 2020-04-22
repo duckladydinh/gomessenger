@@ -43,6 +43,14 @@ func (server *ChatServiceServer) AddChatMessage(_ context.Context, r *api.AddCha
 
 func (server *ChatServiceServer) GetChatChannel(r *api.GetChatChannelRequest, s api.ChatService_GetChatChannelServer) error {
 	log.Println(".GetChatChannel", r.UserId, r.ChannelId)
-	server.channelStreamStore.AddStream(r.UserId, s)
+	server.channelStreamStore.AddStream(r.UserId, &s)
+	_ = s.Send(&api.ChatMessage{
+		MessageId: "000",
+		UserId:    "usr01",
+		ChannelId: "public",
+		Timestamp: 1234,
+		Content:   "Hallo, I am Server!",
+	})
+	log.Println("Original Address:", &s)
 	return nil
 }
