@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/duckladydinh/gochat/api"
-	"github.com/duckladydinh/gochat/service"
+	"github.com/duckladydinh/gomessenger/api"
+	"github.com/duckladydinh/gomessenger/service"
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
 	"google.golang.org/grpc"
 	"log"
@@ -25,6 +25,7 @@ func main() {
 		}),
 	}
 
+	log.Println("Starting server at", httpServer.Addr)
 	if err := httpServer.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}

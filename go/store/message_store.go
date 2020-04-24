@@ -1,7 +1,7 @@
 package store
 
 import (
-	"github.com/duckladydinh/gochat/model"
+	"github.com/duckladydinh/gomessenger/model"
 	"sync"
 )
 

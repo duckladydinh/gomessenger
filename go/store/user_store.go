@@ -3,7 +3,7 @@ package store
 import (
 	"errors"
 	"fmt"
-	"github.com/duckladydinh/gochat/model"
+	"github.com/duckladydinh/gomessenger/model"
 	"sync"
 )
 

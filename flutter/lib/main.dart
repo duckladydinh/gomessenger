@@ -35,10 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> addItemToList() async {
     await Service.addChatMessage(messageInputController.text);
-    setState(() {
-      messages.add(messageInputController.text);
-      messageInputController.clear();
-    });
+    messageInputController.clear();
   }
 
   @override
@@ -47,7 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var chatChannel = Service.getChatChannel();
     chatChannel.listen((e) {
-      print(e);
+      setState(() {
+        messages.add(e.content);
+      });
     }, onError: (e) {
       print("Error");
     }, onDone: () {

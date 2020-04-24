@@ -1,4 +1,4 @@
-module github.com/duckladydinh/gochat
+module github.com/duckladydinh/gomessenger
 
 go 1.14
 

@@ -2,9 +2,9 @@ package service
 
 import (
 	"context"
-	"github.com/duckladydinh/gochat/api"
-	"github.com/duckladydinh/gochat/model"
-	"github.com/duckladydinh/gochat/store"
+	"github.com/duckladydinh/gomessenger/api"
+	"github.com/duckladydinh/gomessenger/model"
+	"github.com/duckladydinh/gomessenger/store"
 	"github.com/google/uuid"
 	"log"
 )
@@ -43,14 +43,11 @@ func (server *ChatServiceServer) AddChatMessage(_ context.Context, r *api.AddCha
 
 func (server *ChatServiceServer) GetChatChannel(r *api.GetChatChannelRequest, s api.ChatService_GetChatChannelServer) error {
 	log.Println(".GetChatChannel", r.UserId, r.ChannelId)
-	server.channelStreamStore.AddStream(r.UserId, &s)
-	_ = s.Send(&api.ChatMessage{
-		MessageId: "000",
-		UserId:    "usr01",
-		ChannelId: "public",
-		Timestamp: 1234,
-		Content:   "Hallo, I am Server!",
-	})
-	log.Println("Original Address:", &s)
+	ch := make(chan *api.ChatMessage)
+	server.channelStreamStore.AddStream(r.UserId, ch)
+
+	for msg := range ch {
+		_ = s.Send(msg)
+	}
 	return nil
 }
