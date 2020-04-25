@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = ".;api";
+option go_package = ".;rpc";
 
 service ChatService {
   rpc AddChatMessage (AddChatMessageRequest) returns (Response);

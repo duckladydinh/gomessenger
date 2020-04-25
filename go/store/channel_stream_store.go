@@ -1,30 +1,30 @@
 package store
 
 import (
-	"github.com/duckladydinh/gomessenger/api"
 	"github.com/duckladydinh/gomessenger/model"
+	"github.com/duckladydinh/gomessenger/rpc"
 	"sync"
 )
 
 type ChannelStreamStore struct {
-	data      map[string]chan *api.ChatMessage
+	data      map[string]chan *rpc.ChatMessage
 	mux       sync.Mutex
 	channelId string
 }
 
 func NewChannelStreamStore(channelId string) *ChannelStreamStore {
 	return &ChannelStreamStore{
-		data:      make(map[string]chan *api.ChatMessage),
+		data:      make(map[string]chan *rpc.ChatMessage),
 		channelId: channelId,
 	}
 }
 
-func (s *ChannelStreamStore) AddStream(userId string, stream chan *api.ChatMessage) {
+func (s *ChannelStreamStore) AddStream(userId string, stream chan *rpc.ChatMessage) {
 	s.data[userId] = stream
 }
 
 func (s *ChannelStreamStore) Broadcast(msg *model.ChatMessage) {
-	sendMsg := &api.ChatMessage{
+	sendMsg := &rpc.ChatMessage{
 		MessageId: msg.Id,
 		UserId:    msg.UserId,
 		ChannelId: s.channelId,

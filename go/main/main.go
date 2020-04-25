@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/duckladydinh/gomessenger/api"
+	"github.com/duckladydinh/gomessenger/constants"
+	"github.com/duckladydinh/gomessenger/rpc"
 	"github.com/duckladydinh/gomessenger/service"
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
 	"google.golang.org/grpc"
@@ -16,10 +17,10 @@ func main() {
 	}))
 
 	chatServiceServer := service.NewChatServiceServer()
-	api.RegisterChatServiceServer(server, chatServiceServer)
+	rpc.RegisterChatServiceServer(server, chatServiceServer)
 
 	httpServer := http.Server{
-		Addr: ":9090",
+		Addr: constants.ServerAddress,
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			webServer.ServeHTTP(w, r)
 		}),

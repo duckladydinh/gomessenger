@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"github.com/duckladydinh/gomessenger/api"
 	"github.com/duckladydinh/gomessenger/model"
+	"github.com/duckladydinh/gomessenger/rpc"
 	"github.com/duckladydinh/gomessenger/store"
 	"github.com/google/uuid"
 	"log"
@@ -23,7 +23,7 @@ func NewChatServiceServer() *ChatServiceServer {
 	}
 }
 
-func (server *ChatServiceServer) AddChatMessage(_ context.Context, r *api.AddChatMessageRequest) (*api.Response, error) {
+func (server *ChatServiceServer) AddChatMessage(_ context.Context, r *rpc.AddChatMessageRequest) (*rpc.Response, error) {
 	log.Println(".AddChatMessage", r.Message)
 	msg := &model.ChatMessage{
 		Id:      uuid.New().String(),
@@ -34,16 +34,16 @@ func (server *ChatServiceServer) AddChatMessage(_ context.Context, r *api.AddCha
 	server.messageStore.AddMessage(msg)
 	server.channelStreamStore.Broadcast(msg)
 
-	res := &api.Response{
+	res := &rpc.Response{
 		Code:    200,
 		Message: "Message Successfully Added",
 	}
 	return res, nil
 }
 
-func (server *ChatServiceServer) GetChatChannel(r *api.GetChatChannelRequest, s api.ChatService_GetChatChannelServer) error {
+func (server *ChatServiceServer) GetChatChannel(r *rpc.GetChatChannelRequest, s rpc.ChatService_GetChatChannelServer) error {
 	log.Println(".GetChatChannel", r.UserId, r.ChannelId)
-	ch := make(chan *api.ChatMessage)
+	ch := make(chan *rpc.ChatMessage)
 	server.channelStreamStore.AddStream(r.UserId, ch)
 
 	for msg := range ch {
