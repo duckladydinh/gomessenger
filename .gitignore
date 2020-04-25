@@ -1,12 +1,12 @@
 .idea
 
-go/.idea
+gms-go/.idea
 
-flutter/.idea
-flutter/.dart_tool
-flutter/build
+gms-flutter/.idea
+gms-flutter/.dart_tool
+gms-flutter/build
 
-web/node_modules
-web/.cache
-web/yarn*.log*
-web/yarn.lock
+#web/node_modules
+#web/.cache
+#web/yarn*.log*
+#web/yarn.lock
