@@ -2,35 +2,39 @@ syntax = "proto3";
 option go_package = ".;rpc";
 
 service ChatService {
-  rpc AddChatMessage (AddChatMessageRequest) returns (Response);
-  rpc GetChatChannel (GetChatChannelRequest) returns (stream ChatMessage);
+  rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse); 
+  rpc AddChatMessage (AddChatMessageRequest) returns (Empty);
+  rpc GetChatMessageStream (GetChatMessageStreamRequest) returns (stream ChatMessage);
 }
 
-message Response {
-  int32 code = 1;
-  string message = 2;
+message Empty {
+  // empty message
 }
 
+// register user
+message RegisterUserRequest {
+  string name = 1;
+}
+
+message RegisterUserResponse {
+  string userId = 1;
+}
+
+// add message
 message AddChatMessageRequest {
   string userId = 1;
-  string channelId = 2;
-  int64 timestamp = 3;
-  string message = 4;
+  int64 timestamp = 2;
+  string message = 3;
 }
 
-message GetChatChannelRequest {
+// get chat channel
+message GetChatMessageStreamRequest {
   string userId = 1;
-  string channelId = 2;
-}
-
-message GetChatMessageResponse {
-  repeated ChatMessage messages = 1;
 }
 
 message ChatMessage {
-  string messageId = 1;
+  string id = 1;
   string userId = 2;
-  string channelId = 3;
-  int64 timestamp = 4;
-  string content = 5;
+  int64 timestamp = 3;
+  string message = 4;
 }
