@@ -9,6 +9,7 @@ Why? My research suggested that Go is best for web application backend and micro
  - [x] GRPC doesn't work well for WEB -> gRPC-Web.
  - [x] Server streaming not working for grpc/grpc_web.dart -> NEVER end stream function.
  - [ ] Detect and remove dead connections -> heartbeat messages?
+
 ## Tasks
  - [x] Auto-generate models in Go and JS -> the pain of rewriting the same stuff in the client-side -> gRPC + protobuf 3.
  - [x] Play with Flutter Web -> incredible but some problems with releasing.
@@ -18,3 +19,12 @@ Why? My research suggested that Go is best for web application backend and micro
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
  - [ ] Deploy to Google Cloud.
+
+## Outcomes
+ - [x] Practical and complete understanding with Mutex.
+ - [x] First experience with router and navigator.
+ - [x] Basics of the incredibly powerful gRPC.
+ - [x] Basics of Go and concurrency with Go.
+ - [x] Basics of the absolutely stunning Flutter.
+ - [ ] Dockerization of server and client.
+ - [ ] Deployment to cloud.
