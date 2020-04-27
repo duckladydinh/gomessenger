@@ -22,7 +22,7 @@ Why? My research suggested that Go is best for web application backend and micro
  - [ ] Deploy to Google Cloud.
 
 ## Outcomes
- - [x] Practical and complete understanding with Mutex.
+ - [x] Practical and complete understanding of Mutex.
  - [x] First experience with router and navigator.
  - [x] Basics of the incredibly powerful gRPC.
  - [x] Basics of Go and concurrency with Go.
