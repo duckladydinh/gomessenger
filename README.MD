@@ -5,6 +5,8 @@ I want to learn **GO** by building a small chat app with Go backend, Websocket o
 
 Why? My research suggested that Go is best for web application backend and microservices. The frontend is hence needed and a good way to transfer data is also very important.
 
+![](images/chat_app.png)
+
 ## Current Problems
  - [x] GRPC doesn't work well for WEB -> gRPC-Web.
  - [x] Server streaming not working for grpc/grpc_web.dart -> NEVER end stream function.
