@@ -17,14 +17,14 @@ Why? My research suggested that Go is best for web application backend and micro
  - [x] Play with Flutter Web -> incredible but some problems with releasing.
  - [x] Test if Go can publish a web UI -> by http.FileServer.
  - [x] ~~Test websocket communication -> by gorilla/websocket.~~ (outdated)
- - [ ] Using a docker database to persist data.
+ - [ ] Use a docker database to persist data.
  - [ ] Build a non-compromised chat UI.
  - [ ] Implement all key features.
  - [ ] Deploy to a docker image.
  - [ ] Deploy to Google Cloud.
 
 ## Outcomes
- - [x] Practical and complete understanding with Mutex.
+ - [x] Practical and complete understanding of Mutex.
  - [x] First experience with router and navigator.
  - [x] Basics of the incredibly powerful gRPC.
  - [x] Basics of Go and concurrency with Go.
