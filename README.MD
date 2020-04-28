@@ -31,4 +31,6 @@ Why? My research suggested that Go is best for web application backend and micro
  - [ ] Deploy to a docker image.
  - [ ] Deploy to Google Cloud.
 
+## Photos
+
 ![](images/chat_app.png)
