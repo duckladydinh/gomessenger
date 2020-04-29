@@ -11,6 +11,7 @@ Why? My research suggested that Go is best for web application backend and micro
  - [x] Basics of the incredibly powerful gRPC.
  - [x] Basics of Go and concurrency with Go.
  - [x] Basics of the absolutely stunning Flutter.
+ - [ ] Using Google Firebase for UI hosting.
  - [ ] Database workflow and patterns in Go.
  - [ ] Generic understanding of middlewares.
  - [ ] Dockerization of server and client.
