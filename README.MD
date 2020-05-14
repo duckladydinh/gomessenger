@@ -5,6 +5,9 @@ I want to learn **GO** by building a small chat app with Go backend, Websocket o
 
 Why? My research suggested that Go is best for web application backend and microservices. The frontend is hence needed and a good way to transfer data is also very important.
 
+## Status
+All proofs of concept have been verified and the app is ready to finalize. However, the next step is about UI design, which I, as a handsome technical boy who has very low tolerance for inelegant, find it quite troublesome since I want to make it beautiful but at the same time have no idea how it can be done. Hence I decided to spend some more time playing with Flutter and making a new personal blog post to learn about design before continue to play with this.
+
 ## Learning Goals
  - [x] Practical and complete understanding of Mutex.
  - [x] First experience with router and navigator.
@@ -20,6 +23,7 @@ Why? My research suggested that Go is best for web application backend and micro
 ## Current Problems
  - [x] GRPC doesn't work well for WEB -> gRPC-Web.
  - [x] Server streaming not working for grpc/grpc_web.dart -> NEVER end stream function.
+ - [ ] An absolutely free (no hidden costs or registration) simple CPU server for the backend is no where to be found :'(.
 
 ## Tasks
  - [x] Auto-generate models in Go and JS -> the pain of rewriting the same stuff in the client-side -> gRPC + protobuf 3.
