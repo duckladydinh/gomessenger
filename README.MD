@@ -6,7 +6,7 @@ I want to learn **GO** by building a small chat app with Go backend, Websocket o
 Why? My research suggested that Go is best for web application backend and microservices. The frontend is hence needed and a good way to transfer data is also very important.
 
 ## Status
-All proofs of concept have been verified and the app is ready to finalize. However, the next step is about UI design, which I, as a handsome technical boy who has very low tolerance for inelegant, find it quite troublesome since I want to make it beautiful but at the same time have no idea how it can be done. Hence I decided to spend some more time playing with Flutter and making a new personal blog post to learn about design before continue to play with this.
+All proofs of concept have been verified and the app is ready to finalize. However, the next step is about UI design, which I, as a handsome technical boy who has very low tolerance for inelegant, find it quite troublesome since I want to make it beautiful but at the same time have no idea how it can be done. Hence I decided to spend some more time playing with Flutter and making a new personal blog post to learn about design before continuing to play with this.
 
 ## Learning Goals
  - [x] Practical and complete understanding of Mutex.
